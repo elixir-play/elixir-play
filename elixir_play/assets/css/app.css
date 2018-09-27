@@ -1,0 +1,9 @@
+/* This file is for your main application css. */
+
+@import "./phoenix.css";
+
+.support {
+  border: 1px solid;
+  margin: 2px;
+  min-height: 500px;
+}

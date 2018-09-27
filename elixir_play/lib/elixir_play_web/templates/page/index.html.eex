@@ -1,0 +1,10 @@
+<section class="row">
+  <button id="run-button">Run</button>
+</section>
+<section class="row">
+  <article id="playground-code" class="column code" ><%= @code %></article>
+  <article class="column support">
+    <h3>Output: </h3>
+    <pre id="code-output"></pre>
+  </article>
+</section>
