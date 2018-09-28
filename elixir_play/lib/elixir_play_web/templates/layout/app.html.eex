@@ -9,7 +9,7 @@
   </head>
   <body>
     <header>
-      <section class="container">
+      <section class="container-fluid">
         <nav role="navigation">
           <ul>
             <li><a href="https://hexdocs.pm/phoenix/overview.html">Get Started</a></li>

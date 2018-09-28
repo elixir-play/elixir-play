@@ -4,7 +4,8 @@
 <section class="row">
   <article id="playground-code" class="column code" ><%= @code %></article>
   <article class="column support">
-    <h3>Output: </h3>
-    <pre id="code-output"></pre>
+    <h4>Output: </h4>
+    <span id='running-message' class='hidden'>Running Code...</span>
+    <pre id="code-output" class='hidden'></pre>
   </article>
 </section>

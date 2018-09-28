@@ -12,16 +12,20 @@ import css from "../css/app.css"
 import "phoenix_html"
 import * as ace from 'brace'
 import 'brace/mode/elixir'
-import 'brace/theme/monokai'
+import 'brace/theme/dracula'
 
 const editor = ace.edit('playground-code')
-editor.getSession().setMode('ace/mode/elixir')
-editor.setTheme('ace/theme/monokai')
-
 const runButton = document.getElementById('run-button')
+const runningMessage = document.getElementById('running-message')
+const outputElement = document.getElementById('code-output')
+
+editor.getSession().setMode('ace/mode/elixir')
+editor.setTheme('ace/theme/dracula')
+
 runButton.addEventListener('click', (event) => {
   event.preventDefault()
   const snipped = {code: editor.getValue()}
+  toggleRunningMessage()
   fetch("/run", {
     method: "post",
     body: JSON.stringify(snipped),
@@ -31,10 +35,22 @@ runButton.addEventListener('click', (event) => {
   })
     .then((response) => response.json())
     .then(({output}) => {
-      const outputElement = document.getElementById('code-output')
+      toggleRunningMessage()
       outputElement.innerText = output
     })
 })
+
+function toggleRunningMessage() {
+  if (runningMessage.classList.contains('hidden')) {
+    runningMessage.classList.remove('hidden')
+    outputElement.classList.add('hidden')
+    runButton.classList.add('disabled')
+  } else {
+    runningMessage.classList.add('hidden')
+    runButton.classList.remove('disabled')
+    outputElement.classList.remove('hidden')
+  }
+}
 
 // Import local files
 //

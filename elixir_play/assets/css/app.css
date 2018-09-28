@@ -7,3 +7,17 @@
   margin: 2px;
   min-height: 500px;
 }
+
+#code-output {
+  padding: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+button.disabled {
+  background-color: #606c76;
+  border-color: #606c76;
+  cursor: default;
+}
