@@ -25,5 +25,6 @@ defmodule ElixirPlayWeb.Router do
     pipe_through :api
 
     post "/run", PageController, :run
+    post "/format", PageController, :format
   end
 end

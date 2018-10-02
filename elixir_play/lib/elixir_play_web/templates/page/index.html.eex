@@ -1,10 +1,12 @@
 <section class="row">
-  <button id="run-button">Run</button>
+  <button id="run-button"><%= gettext("Run") %></button>
+  <button id="format-button"><%= gettext("Format") %></button>
+  <span class="vm-version">Elixir 1.7.3</button>
 </section>
 <section class="row">
   <article id="playground-code" class="column code" ><%= @code %></article>
   <article class="column support">
-    <h4>Output: </h4>
+    <h4><%= gettext("Output:") %> </h4>
     <span id='running-message' class='hidden'>Running Code...</span>
     <pre id="code-output" class='hidden'></pre>
   </article>
