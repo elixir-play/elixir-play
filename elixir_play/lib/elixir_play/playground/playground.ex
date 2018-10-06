@@ -4,20 +4,28 @@ defmodule ElixirPlay.Playground do
   """
 
   @spec run(string) :: map
-  def run(code) do
+  def run(%{"source" => source, "elixir_version" => elixir_version}) do
     {output, _exit_status} =
       System.cmd(
         "docker",
         [
           "run",
-          "--cpu-period=50000",
-          "--cpu-quota=25000",
           "--rm",
-          "playground-1.7.3",
+          "--memory", "256m",
+          "--memory-swap", "320m",
+          "--network", "none",
+          "--cap-drop=ALL",
+          "--pids-limit=512",
+          "playground-#{elixir_version}",
+          "elixir",
+          "--name",
+          "playground",
+          "-S",
           "mix",
           "run",
+          "--no-start",
           "-e",
-          code
+         source
         ],
         stderr_to_stdout: true
       )

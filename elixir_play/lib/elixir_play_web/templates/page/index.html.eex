@@ -1,7 +1,7 @@
 <section class="row">
   <button id="run-button"><%= gettext("Run") %></button>
-  <button id="format-button"><%= gettext("Format") %></button>
-  <span class="vm-version">Elixir 1.7.3</button>
+  <%= select %Phoenix.HTML.Form{data: %{}}, :elixir_version, @versions %>
+  <button id="format-button"><%= gettext("Format") %> &lt;/&gt;</button>
 </section>
 <section class="row">
   <article id="playground-code" class="column code" ><%= @code %></article>
