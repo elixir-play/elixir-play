@@ -2,6 +2,10 @@
 
 @import "./phoenix.css";
 
+body {
+  margin: 0;
+}
+
 .support {
   border: 1px solid;
   margin: 2px;
@@ -28,4 +32,25 @@ button.disabled {
 
 .vm-version {
   margin: auto 10px;
+}
+
+.top-header {
+  background-color: #373f52;
+  padding: 2px 5px;
+  font-family: Lato,sans-serif;
+}
+
+.top-header a {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 30px;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+  max-width: 230px;
+  word-wrap: break-word;
+}
+
+pre {
+  border-left: 3px solid #9768d1;
 }
