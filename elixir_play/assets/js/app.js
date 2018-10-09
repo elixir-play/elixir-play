@@ -13,8 +13,11 @@ import "phoenix_html"
 import * as ace from 'brace'
 import 'brace/mode/elixir'
 import 'brace/theme/dracula'
+import AnsiToHTML from 'ansi-to-html'
+import xssFilters from 'xss-filters'
 
 const editor = ace.edit('playground-code')
+const ansiConverter = new AnsiToHTML()
 const runButton = document.getElementById('run-button')
 const formatButton = document.getElementById('format-button')
 const runningMessage = document.getElementById('running-message')
@@ -61,7 +64,8 @@ function clickRun(event) {
   .then((response) => response.json())
   .then(({output}) => {
     toggleRunningMessage()
-    outputElement.innerText = output
+    const safeOutput = xssFilters.inHTMLData(output)
+    outputElement.innerHTML = ansiConverter.toHtml(safeOutput)
   })
 }
 

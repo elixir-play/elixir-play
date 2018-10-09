@@ -11,6 +11,7 @@ defmodule ElixirPlay.Playground do
         [
           "run",
           "--rm",
+          "--tty",
           "--memory", "256m",
           "--memory-swap", "320m",
           "--network", "none",
