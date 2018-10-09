@@ -24,9 +24,16 @@ const runningMessage = document.getElementById('running-message')
 const outputElement = document.getElementById('code-output')
 const elixirVersion = document.getElementById('elixir_version')
 
+const previousCode = localStorage.getItem("play:code")
+
 editor.getSession().setMode('ace/mode/elixir')
 editor.setTheme('ace/theme/dracula')
 editor.$blockScrolling = Infinity
+
+if (previousCode) {
+  editor.setValue(previousCode)
+  editor.clearSelection()
+}
 
 runButton.addEventListener('click', clickRun)
 formatButton.addEventListener('click', clickFormat)
@@ -63,6 +70,7 @@ function clickRun(event) {
   })
   .then((response) => response.json())
   .then(({output}) => {
+    localStorage.setItem('play:code', editor.getValue())
     toggleRunningMessage()
     const safeOutput = xssFilters.inHTMLData(output)
     outputElement.innerHTML = ansiConverter.toHtml(safeOutput)
@@ -82,6 +90,7 @@ function clickFormat(event) {
   })
   .then((response) => response.json())
   .then(({output}) => {
+    localStorage.setItem('play:code', editor.getValue())
     toggleRunningMessage({code: false})
     const position = editor.getCursorPosition()
     editor.setValue(output)
