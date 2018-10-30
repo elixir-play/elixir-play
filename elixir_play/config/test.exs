@@ -16,3 +16,5 @@ config :elixir_play, ElixirPlay.Repo,
   database: "elixir_play_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
+
+config :elixir_play, :code_runner, ElixirPlay.CodeRunner.Local

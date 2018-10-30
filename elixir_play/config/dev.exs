@@ -21,6 +21,8 @@ config :elixir_play, ElixirPlayWeb.Endpoint,
     ]
   ]
 
+config :elixir_play, :code_runner, ElixirPlay.CodeRunner.Docker
+
 # ## SSL Support
 #
 # In order to use HTTPS in development, a self-signed
