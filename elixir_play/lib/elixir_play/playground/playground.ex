@@ -24,4 +24,12 @@ defmodule ElixirPlay.Playground do
     error ->
       %{output: error.description}
   end
+
+  @doc """
+  Get the available versions from the current code runner
+  """
+  @spec available_versions() :: [String.t()]
+  def available_versions do
+    CodeRunner.available_versions()
+  end
 end

@@ -3,7 +3,8 @@ defmodule ElixirPlayWeb.PageController do
   alias ElixirPlay.Playground
 
   def index(conn, _params) do
-    render(conn, "index.html", code: default_code(), versions: ["1.7.3", "1.6.6"])
+    versions = Playground.available_versions()
+    render(conn, "index.html", code: default_code(), versions: versions)
   end
 
   @doc """

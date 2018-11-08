@@ -1,11 +1,11 @@
 <section class="row">
   <div class='top-buttons-wrapper'>
-    <button id="run_btn"><%= gettext("Run") %></button>
+    <button id="run_btn" class="button"><%= gettext("Run") %></button>
     <div class='vm-version-wrapper'>
       <span><%= gettext("Version")  %>:</span>
       <%= select %Phoenix.HTML.Form{data: %{}}, :elixir_version, @versions %>
     </div>
-    <button id="format_btn" class="button-outline float-right"><%= gettext("Format") %></button>
+    <button id="format_btn" class="button button-outline float-right"><%= gettext("Format") %></button>
   </div>
 </section>
 <section class="row">

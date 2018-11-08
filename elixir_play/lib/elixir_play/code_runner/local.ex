@@ -5,7 +5,7 @@ defmodule ElixirPlay.CodeRunner.Local do
     %{output: output}
   end
 
-  def avaliable_versions do
-    ["local-#{System.version}"]
+  def available_versions do
+    ["local-#{System.version()}"]
   end
 end

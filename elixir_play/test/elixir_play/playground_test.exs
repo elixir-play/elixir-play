@@ -7,4 +7,14 @@ defmodule ElixirPlay.PlaygroundTest do
 
     assert Playground.run(code) == %{output: "hey\n"}
   end
+
+  test "formats the code" do
+    code = ~s(IO.puts "hey")
+
+    assert Playground.format(code) == %{output: ~s|IO.puts("hey")\n|}
+  end
+
+  test "fetchs code versions" do
+    assert is_list(Playground.available_versions())
+  end
 end

@@ -22,7 +22,7 @@ body {
   display: none;
 }
 
-button {
+.button {
   &:focus {
     background-color: #0069d9;
   }
@@ -31,6 +31,18 @@ button {
     background-color: #606c76;
     border-color: #606c76;
     cursor: default;
+  }
+
+  &.button-outline {
+    &.disabled {
+      background-color: inherit;
+      color: inherit;
+    }
+
+    &:focus {
+      color: #0069d9;
+      border-color: #0069d9;
+    }
   }
 }
 

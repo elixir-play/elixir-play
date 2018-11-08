@@ -40,7 +40,7 @@ defmodule ElixirPlay.CodeRunner.Docker do
     %{output: output}
   end
 
-  def versions do
+  def available_versions do
     ["1.7.3", "1.6.6"]
   end
 end

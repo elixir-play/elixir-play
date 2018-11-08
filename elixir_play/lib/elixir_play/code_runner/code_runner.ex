@@ -14,4 +14,9 @@ defmodule ElixirPlay.CodeRunner do
   def run(source, version) do
     @runner.run(source, version)
   end
+
+  @spec available_versions() :: [String.t()]
+  def available_versions do
+    @runner.available_versions()
+  end
 end
