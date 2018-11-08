@@ -22,12 +22,15 @@ body {
   display: none;
 }
 
+button:focus {
+  background-color: #0069d9;
+}
+
 button.disabled {
   background-color: #606c76;
   border-color: #606c76;
   cursor: default;
 }
-
 
 button#format-button.disabled {
   background-color: inherit;
@@ -72,6 +75,7 @@ button#format-button.disabled {
 
 .top-buttons-wrapper {
   margin: 2px 20px;
+  width: 100%;
 }
 
 pre {

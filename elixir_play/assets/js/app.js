@@ -16,12 +16,12 @@ import 'brace/theme/dracula'
 import AnsiToHTML from 'ansi-to-html'
 import xssFilters from 'xss-filters'
 
-const editor = ace.edit('playground-code')
+const editor = ace.edit('playground_code')
 const ansiConverter = new AnsiToHTML()
-const runButton = document.getElementById('run-button')
-const formatButton = document.getElementById('format-button')
-const runningMessage = document.getElementById('running-message')
-const outputElement = document.getElementById('code-output')
+const runButton = document.getElementById('run_btn')
+const formatButton = document.getElementById('format_btn')
+const runningMessage = document.getElementById('running_message')
+const outputElement = document.getElementById('code_output')
 const elixirVersion = document.getElementById('elixir_version')
 
 const previousCode = localStorage.getItem("play:code")
