@@ -9,7 +9,7 @@
   </div>
 </section>
 <section class="row">
-  <article id="playground_code" class="column code" ><%= @code %></article>
+  <article id="playground_code" class="column code" ><%= default_code %></article>
   <article class="column support">
     <h4><%= gettext("Output:") %> </h4>
     <span id='running_message' class='hidden'>Running Code...</span>

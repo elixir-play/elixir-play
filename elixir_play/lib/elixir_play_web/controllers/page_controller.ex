@@ -4,7 +4,7 @@ defmodule ElixirPlayWeb.PageController do
 
   def index(conn, _params) do
     versions = Playground.available_versions()
-    render(conn, "index.html", code: default_code(), versions: versions)
+    render(conn, "index.html", versions: versions)
   end
 
   @doc """
@@ -18,15 +18,5 @@ defmodule ElixirPlayWeb.PageController do
   def format(conn, %{"code" => code}) do
     result = Playground.format(code)
     render(conn, "result.json", result: result)
-  end
-
-  defp default_code do
-    """
-    defmodule Hello do
-      def world, do: "Hello World"
-    end
-
-    IO.puts(Hello.world)
-    """
   end
 end
