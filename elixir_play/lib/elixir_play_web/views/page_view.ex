@@ -1,6 +1,5 @@
 defmodule ElixirPlayWeb.PageView do
   use ElixirPlayWeb, :view
-  @dialyzer :no_match
 
   def render("result.json", %{result: result}) do
     result
