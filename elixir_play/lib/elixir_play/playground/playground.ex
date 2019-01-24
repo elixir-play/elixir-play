@@ -16,9 +16,9 @@ defmodule ElixirPlay.Playground do
   @doc """
   formats the given code under the current runtime
   """
-  @spec format(String.t()) :: map
-  def format(code) do
-    code_formated = IO.iodata_to_binary([Code.format_string!(code), "\n"])
+  @spec format(map()) :: map
+  def format(%{"source" => source}) do
+    code_formated = IO.iodata_to_binary([Code.format_string!(source), "\n"])
     %{output: code_formated}
   rescue
     error ->

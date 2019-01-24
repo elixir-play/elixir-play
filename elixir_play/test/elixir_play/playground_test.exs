@@ -9,7 +9,7 @@ defmodule ElixirPlay.PlaygroundTest do
   end
 
   test "formats the code" do
-    code = ~s(IO.puts "hey")
+    code = %{"source" => ~s(IO.puts "hey")}
 
     assert Playground.format(code) == %{output: ~s|IO.puts("hey")\n|}
   end
