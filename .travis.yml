@@ -13,7 +13,7 @@ install:
   - make fetch_dependencies
 
 before_script:
-  - MIX_ENV=test mix do ecto.create, ecto.migrate
+  - make migrate_ci
 
 script:
   - make test_play
