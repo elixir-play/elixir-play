@@ -17,4 +17,9 @@ defmodule ElixirPlayWeb.CodeController do
     result = Playground.format(code)
     render(conn, "result.json", result: result)
   end
+
+  def versions(conn, _params) do
+    versions = Playground.available_versions()
+    render(conn, "versions.json", versions: versions)
+  end
 end

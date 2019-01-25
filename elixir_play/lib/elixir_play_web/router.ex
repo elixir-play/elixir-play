@@ -26,5 +26,6 @@ defmodule ElixirPlayWeb.Router do
 
     post "/run", CodeController, :run
     post "/format", CodeController, :format
+    get "/versions", CodeController, :versions
   end
 end

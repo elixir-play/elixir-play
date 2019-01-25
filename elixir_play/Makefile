@@ -6,3 +6,8 @@ db_start:
 
 db_new:
 	docker run -p ${DB_PORT}:${DB_PORT} --name ${DB_NAME} -d -it postgres:latest
+
+full_test:
+	mix test
+	mix credo --strict
+	mix dialyzer
