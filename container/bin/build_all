@@ -1,0 +1,16 @@
+#! /bin/sh
+readonly versions=(1.5.3 1.6.6 1.7.4 1.8.0)
+
+for version in ${versions[@]}; do
+  image_name=playground-elixir-$version
+  if [[ $(docker images -q $image_name 2> /dev/null) == "" ]]; then
+    echo "building image for version $version"
+    if [[ $(docker build --no-cache -t $image_name  --build-arg ELIXIR_VERSION=$version  .) ]]; then
+      echo "Image for $version built."
+    else
+      echo "Error buuilding image for $version"
+    fi
+  else
+    echo "Image for $version already installed"
+  fi
+done
