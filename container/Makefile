@@ -4,3 +4,6 @@ build:
 
 build_all:
 	./bin/build_all
+
+remove_images:
+	docker images -q 'playground-elixir-*' | xargs docker rmi
