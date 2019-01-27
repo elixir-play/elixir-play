@@ -23,7 +23,7 @@ defmodule ElixirPlay.CodeRunner.Docker do
           "none",
           "--cap-drop=ALL",
           "--pids-limit=512",
-          "playground-#{version}",
+          "playground-elixir-#{version}",
           "elixir",
           "--name",
           "playground",
@@ -41,6 +41,6 @@ defmodule ElixirPlay.CodeRunner.Docker do
   end
 
   def available_versions do
-    ["1.7.3", "1.6.6"]
+    ~w(1.8.0 1.7.4 1.6.6 1.5.3)
   end
 end
