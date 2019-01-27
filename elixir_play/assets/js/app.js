@@ -22,7 +22,7 @@ const runButton = document.getElementById('run_btn')
 const formatButton = document.getElementById('format_btn')
 const runningMessage = document.getElementById('running_message')
 const outputElement = document.getElementById('code_output')
-const elixirVersion = document.getElementById('elixir_version')
+const elixirVersion = document.getElementById('playground_elixir_version')
 
 const previousCode = localStorage.getItem("play:code")
 
@@ -79,11 +79,11 @@ function clickRun(event) {
 
 function clickFormat(event) {
   event.preventDefault()
-  const snipped = {code: editor.getValue()}
+  const code = {source: editor.getValue()}
   toggleRunningMessage({code: false})
   fetch('/format', {
     method: "post",
-    body: JSON.stringify(snipped),
+    body: JSON.stringify({code}),
     headers: {
       'content-type': "application/json",
     },

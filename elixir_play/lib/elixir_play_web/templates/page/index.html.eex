@@ -3,7 +3,7 @@
     <button id="run_btn" class="button"><%= gettext("Run") %></button>
     <div class='vm-version-wrapper'>
       <span><%= gettext("Version")  %>:</span>
-      <%= select :no_form, :elixir_version, @versions %>
+      <%= select :playground, :elixir_version, @versions %>
     </div>
     <button id="format_btn" class="button button-outline float-right"><%= gettext("Format") %></button>
   </div>
