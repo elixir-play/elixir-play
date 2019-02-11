@@ -1,6 +1,6 @@
 
 build:
-	docker build --no-cache -t playground-elixir-1.8.0  --build-arg ELIXIR_VERSION=1.8.0 .
+	docker build --no-cache -t playground-elixir-1.8.1  --build-arg ELIXIR_VERSION=1.8.1 .
 
 build_all:
 	./bin/build_all

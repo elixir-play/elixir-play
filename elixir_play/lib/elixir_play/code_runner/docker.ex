@@ -41,6 +41,6 @@ defmodule ElixirPlay.CodeRunner.Docker do
   end
 
   def available_versions do
-    ~w(1.8.0 1.7.4 1.6.6 1.5.3)
+    ~w(1.8.1 1.7.4 1.6.6 1.5.3)
   end
 end

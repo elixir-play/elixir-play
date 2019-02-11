@@ -1,5 +1,5 @@
 #! /bin/sh
-readonly versions=(1.5.3 1.6.6 1.7.4 1.8.0)
+readonly versions=(1.5.3 1.6.6 1.7.4 1.8.1)
 
 for version in ${versions[@]}; do
   image_name=playground-elixir-$version
