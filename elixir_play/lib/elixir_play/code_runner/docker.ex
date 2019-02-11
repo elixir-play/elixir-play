@@ -26,7 +26,7 @@ defmodule ElixirPlay.CodeRunner.Docker do
           "playground-elixir-#{version}",
           "elixir",
           "--name",
-          "playground",
+          "playground@nohost",
           "-S",
           "mix",
           "run",
