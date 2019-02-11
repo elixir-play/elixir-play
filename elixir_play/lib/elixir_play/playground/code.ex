@@ -1,4 +1,8 @@
 defmodule ElixirPlay.Playground.Code do
+  @doc """
+  Is the module responsible to store the code story. It stores the version
+  of the code with its source code.
+  """
   use Ecto.Schema
   import Ecto.Changeset
 

@@ -1,11 +1,22 @@
 defmodule ElixirPlay.PlaygroundTest do
   use ExUnit.Case, async: true
   alias ElixirPlay.Playground
+  alias ElixirPlay.Repo
+  alias ElixirPlay.Playground.Code
 
-  test "runs the code" do
-    code = %{"source" => ~s(IO.puts "hey"), "elixir_version" => "local"}
+  describe "#run" do
+    setup do
+      code = %{"source" => ~s(IO.puts "hey"), "elixir_version" => "local"}
 
-    assert Playground.run(code) == %{output: "hey\n"}
+      %{result: Playground.run(code)}
+    end
+
+    test "returns the correct result", %{result: result} do
+      assert result == %{output: "hey\n"}
+    end
+
+    test "saves the code that was executed" do
+    end
   end
 
   test "formats the code" do
