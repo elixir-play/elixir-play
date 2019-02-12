@@ -28,6 +28,7 @@ const previousCode = localStorage.getItem("play:code")
 
 editor.getSession().setMode('ace/mode/elixir')
 editor.setTheme('ace/theme/dracula')
+editor.session.setOptions({tabSize: 2, useSoftTabs: true})
 editor.$blockScrolling = Infinity
 
 if (previousCode) {
