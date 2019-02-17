@@ -6,7 +6,7 @@ ARG DL_FROM=master
 
 RUN set -xe \
   && cd /tmp \
-  && wget https://github.com/elixir-lang/elixir/archive/${DL_FROM}.tar.gz \
+  && wget -q https://github.com/elixir-lang/elixir/archive/${DL_FROM}.tar.gz \
   && tar -zxf ${DL_FROM}.tar.gz \
   && cd elixir-${DL_FROM} \
   && make install \
