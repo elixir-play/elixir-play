@@ -4,12 +4,14 @@ defmodule ElixirPlay.Playground do
   """
 
   alias ElixirPlay.CodeRunner
+  require Logger
 
   @doc """
   runs the given code on a given elixir_version
   """
   @spec run(map()) :: map()
   def run(%{"source" => source, "elixir_version" => elixir_version}) do
+    Logger.info("running code (#{elixir_version})\n #{source} \n")
     CodeRunner.run(source, elixir_version)
   end
 
