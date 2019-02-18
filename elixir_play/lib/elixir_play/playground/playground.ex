@@ -24,7 +24,7 @@ defmodule ElixirPlay.Playground do
     %{output: code_formated}
   rescue
     error ->
-      %{output: error.description}
+      %{error: error.description}
   end
 
   @doc """

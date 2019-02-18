@@ -70,7 +70,7 @@ function clickRun(event) {
     },
   })
   .then((response) => response.json())
-  .then(({output}) => {
+  .then(({output, error}) => {
     localStorage.setItem('play:code', editor.getValue())
     toggleRunningMessage()
     const safeOutput = xssFilters.inHTMLData(output)
@@ -90,13 +90,19 @@ function clickFormat(event) {
     },
   })
   .then((response) => response.json())
-  .then(({output}) => {
-    localStorage.setItem('play:code', editor.getValue())
-    toggleRunningMessage({code: false})
-    const position = editor.getCursorPosition()
-    editor.setValue(output)
-    editor.clearSelection()
-    editor.moveCursorToPosition(position)
+  .then(({output, error}) => {
+    if (output) {
+      localStorage.setItem('play:code', editor.getValue())
+      const position = editor.getCursorPosition()
+      editor.setValue(output)
+      editor.clearSelection()
+      editor.moveCursorToPosition(position)
+      toggleRunningMessage({code: false})
+    } else {
+      toggleRunningMessage()
+      const safeOutput = xssFilters.inHTMLData(error)
+      outputElement.innerHTML = ansiConverter.toHtml(safeOutput)
+    }
   })
 }
 

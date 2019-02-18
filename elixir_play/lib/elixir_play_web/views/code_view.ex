@@ -5,6 +5,10 @@ defmodule ElixirPlayWeb.CodeView do
     result
   end
 
+  def render("result.json", %{error: error}) do
+    error
+  end
+
   def render("versions.json", %{versions: versions}) do
     %{"versions" => versions}
   end
