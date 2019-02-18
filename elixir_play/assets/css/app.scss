@@ -14,8 +14,12 @@ body {
   max-width: 50%;
 }
 
-#code-output {
+#code_output {
   padding: 5px;
+}
+
+#playground_code {
+  min-height: 30em;
 }
 
 .hidden {
