@@ -1,8 +1,10 @@
 defmodule ElixirPlayWeb.CodeControllerTest do
   use ElixirPlayWeb.ConnCase
 
+  @local_version "local-#{System.version()}"
+
   test "POST /run", %{conn: conn} do
-    code = %{"source" => ~s(IO.puts "Hello World"), "elixir_version" => "0.0.0"}
+    code = %{"source" => ~s(IO.puts "Hello World"), "elixir_version" => @local_version}
     conn = post(conn, "/run", code: code)
     assert json_response(conn, 200)["output"] =~ "Hello World"
   end
@@ -15,7 +17,7 @@ defmodule ElixirPlayWeb.CodeControllerTest do
 
   test "GET /versions", %{conn: conn} do
     response = %{
-      "versions" => ["local-#{System.version()}"]
+      "versions" => [@local_version]
     }
 
     conn = get(conn, "/versions")

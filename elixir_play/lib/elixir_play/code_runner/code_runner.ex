@@ -12,7 +12,13 @@ defmodule ElixirPlay.CodeRunner do
 
   @spec run(String.t(), String.t()) :: %{output: String.t()}
   def run(source, version) do
-    @runner.run(source, version)
+    case version in available_versions() do
+      true ->
+        @runner.run(source, version)
+
+      false ->
+        %{output: "unavailable version #{version}"}
+    end
   end
 
   @spec available_versions() :: [String.t()]
